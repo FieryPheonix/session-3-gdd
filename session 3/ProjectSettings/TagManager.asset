@@ -3,7 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Money
+  - Dinero
+  - ground
+  - child_1
+  - child
+  - child_2
+  - child_3
   layers:
   - Default
   - TransparentFX
