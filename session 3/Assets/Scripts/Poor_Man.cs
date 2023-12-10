@@ -1,14 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+
 
 public class Poor_Man : MonoBehaviour
 {
     public Rigidbody2D rb;
     public Transform tr;
     public Renderer ren;
-
+    
     public float hori;
     public float verti;
 
@@ -19,12 +21,15 @@ public class Poor_Man : MonoBehaviour
 
     public int score = 0;
     public int health = 10;
+    public Text scoreText;
+    public Slider HealthSlider;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         tr = GetComponent<Transform>();
         ren = GetComponent<Renderer>();
+        scoreText.text = "Score: 0/7";
 
     }
 
@@ -45,16 +50,21 @@ public class Poor_Man : MonoBehaviour
         {
             StartCoroutine(stun());
             health--;
+            HealthSlider.value = health;
         }
         if (collision.gameObject.tag == "child_2")
         {
             StartCoroutine(stun());
             health--;
+            HealthSlider.value = health;
+
         }
         if (collision.gameObject.tag == "child_3")
         {
             StartCoroutine(stun());
             health--;
+            HealthSlider.value = health;
+
         }
     }
 
@@ -65,6 +75,7 @@ public class Poor_Man : MonoBehaviour
         {
             Destroy(collision.gameObject);
             score++;
+            scoreText.text = "Score : " + score + "/7";
         }
        
 
